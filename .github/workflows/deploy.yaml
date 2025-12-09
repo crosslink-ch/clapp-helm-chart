@@ -1,5 +1,6 @@
 name: Release Charts
 
+# Trigger redeploy
 on:
   push:
     branches:
