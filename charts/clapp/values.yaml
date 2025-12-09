@@ -131,6 +131,7 @@ affinity: {}
 postgres:
   enabled: false
   provision: false
+  serviceName: main-db
   database:
     name: maureen_db
     owner: maureen_app
