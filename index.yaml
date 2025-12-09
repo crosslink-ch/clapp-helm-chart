@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  clapp:
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2025-12-09T00:11:14.529187606Z"
+    description: A Helm chart for Kubernetes
+    digest: 3241b71cac61a436266b49195f327a2047cd74bbefde6f558f8f4c3952fb2b84
+    name: clapp
+    type: application
+    urls:
+    - https://github.com/crosslink-ch/clapp-helm-chart/releases/download/clapp-0.2.0/clapp-0.2.0.tgz
+    version: 0.2.0
+generated: "2025-12-09T00:11:14.529193267Z"
