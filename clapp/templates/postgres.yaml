@@ -1,0 +1,20 @@
+{{- if .Values.postgres.provision -}}
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ .Values.postgres.serviceName }}
+spec:
+  instances: 1
+
+  imageName: {{ .Values.postgres.image }}
+
+  enableSuperuserAccess: true
+
+  bootstrap:
+    initdb:
+      database: {{ .Values.postgres.database.name }}
+      owner: {{ .Values.postgres.database.owner }}
+
+  storage:
+    size: {{ .Values.postgres.storage.size }}
+{{- end }}
