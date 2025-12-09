@@ -1,0 +1,10 @@
+postgres:
+  enabled: true
+  provision: true
+  database:
+    name: maureen_db
+    owner: maureen_app
+  image: ghcr.io/cloudnative-pg/postgresql:18.1
+  serviceName: main-db
+  storage:
+    size: 1Gi
