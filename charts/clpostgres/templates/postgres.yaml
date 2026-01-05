@@ -5,6 +5,7 @@ metadata:
   name: {{ .Values.postgres.serviceName }}
 spec:
   instances: 1
+  enablePDB: false
 
   imageName: {{ .Values.postgres.image }}
 
