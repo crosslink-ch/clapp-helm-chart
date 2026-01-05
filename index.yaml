@@ -34,6 +34,16 @@ entries:
   clpostgres:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2026-01-05T19:46:30.583434503Z"
+    description: A Helm chart for Kubernetes
+    digest: a60d225a94e9ae01058d9ec0b31fb81bfa2932213ff5574b488eb433338fdbf1
+    name: clpostgres
+    type: application
+    urls:
+    - https://github.com/crosslink-ch/clapp-helm-chart/releases/download/clpostgres-0.1.1/clpostgres-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-12-09T11:00:37.393006282Z"
     description: A Helm chart for Kubernetes
     digest: 37251fa0f87c9ef83ec41b271c289f738cbed0d7660552c6c885c688f329396f
@@ -42,4 +52,4 @@ entries:
     urls:
     - https://github.com/crosslink-ch/clapp-helm-chart/releases/download/clpostgres-0.1.0/clpostgres-0.1.0.tgz
     version: 0.1.0
-generated: "2025-12-09T11:54:32.626616938Z"
+generated: "2026-01-05T19:46:30.583492432Z"
