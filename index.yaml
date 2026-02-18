@@ -3,6 +3,16 @@ entries:
   clapp:
   - apiVersion: v2
     appVersion: 1.17.0
+    created: "2026-02-18T13:24:54.126712523Z"
+    description: A Helm chart for Kubernetes
+    digest: fb32519ad50c7a60ef8e2d64f80abc06fa9da0d6ede144d6f29309077bfde58d
+    name: clapp
+    type: application
+    urls:
+    - https://github.com/crosslink-ch/clapp-helm-chart/releases/download/clapp-0.3.2/clapp-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
+    appVersion: 1.17.0
     created: "2025-12-09T11:54:32.626599866Z"
     description: A Helm chart for Kubernetes
     digest: 6afd8f3487e3e5136d295414def389cb7ffc7cee56f150f5d89f355404b569c9
@@ -52,4 +62,4 @@ entries:
     urls:
     - https://github.com/crosslink-ch/clapp-helm-chart/releases/download/clpostgres-0.1.0/clpostgres-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-05T19:46:30.583492432Z"
+generated: "2026-02-18T13:24:54.126729424Z"
