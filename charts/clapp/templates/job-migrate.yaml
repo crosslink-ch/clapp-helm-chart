@@ -18,11 +18,17 @@ spec:
         - name: {{ .Release.Name }}-migrator
           image: "{{ .Values.payloadcms.migrator.image }}:{{ .Values.payloadcms.migrator.tag | default .Chart.AppVersion }}"
           imagePullPolicy: IfNotPresent
+          {{- if or .Values.envVariables .Values.infisical.enabled }}
           envFrom:
             {{- if .Values.envVariables }}
             - configMapRef:
                 name: {{ include "clapp.fullname" . }}-env
             {{- end }}
+            {{- if .Values.infisical.enabled }}
+            - secretRef:
+                name: {{ include "clapp.infisicalSecretName" . }}
+            {{- end }}
+          {{- end }}
           {{- if .Values.postgres.enabled }}
           env:
             - name: DATABASE_URI

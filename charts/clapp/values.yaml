@@ -148,3 +148,35 @@ postgres:
 # Define runtime env variables here
 envVariables:
 #  HETZNER_S3_BUCKET: "ladada"
+
+# Infisical secret management
+# Requires the Infisical operator and a self-hosted Infisical instance
+infisical:
+  enabled: false
+  # URL of your self-hosted Infisical API
+  hostAPI: ""
+  resyncInterval: "60s"
+
+  # Kubernetes Auth (uses the chart's ServiceAccount)
+  identityId: ""
+  serviceAccountRef:
+    name: ""       # defaults to chart's ServiceAccount
+    namespace: ""  # defaults to release namespace
+
+  # Which secrets to fetch from Infisical
+  secretsScope:
+    projectSlug: ""
+    envSlug: "prod"
+    secretsPath: "/"
+    recursive: false
+
+  # Managed K8s Secret created by the operator
+  managedSecret:
+    secretName: ""          # defaults to <fullname>-infisical
+    creationPolicy: "Orphan"
+
+  # Optional: remap secret keys before storing
+  template:
+    enabled: false
+    includeAllSecrets: true
+    data: {}

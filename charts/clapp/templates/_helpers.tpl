@@ -60,3 +60,10 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Infisical managed secret name
+*/}}
+{{- define "clapp.infisicalSecretName" -}}
+{{- .Values.infisical.managedSecret.secretName | default (printf "%s-infisical" (include "clapp.fullname" .)) }}
+{{- end }}

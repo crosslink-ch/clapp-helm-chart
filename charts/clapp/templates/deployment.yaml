@@ -13,9 +13,14 @@ spec:
       {{- include "clapp.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- if or .Values.infisical.enabled .Values.podAnnotations }}
       annotations:
+        {{- if .Values.infisical.enabled }}
+        secrets.infisical.com/auto-reload: "true"
+        {{- end }}
+        {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- end }}
       labels:
         {{- include "clapp.labels" . | nindent 8 }}
@@ -40,11 +45,17 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if or .Values.envVariables .Values.infisical.enabled }}
           envFrom:
             {{- if .Values.envVariables }}
             - configMapRef:
                 name: {{ include "clapp.fullname" . }}-env
             {{- end }}
+            {{- if .Values.infisical.enabled }}
+            - secretRef:
+                name: {{ include "clapp.infisicalSecretName" . }}
+            {{- end }}
+          {{- end }}
           {{- if .Values.postgres.enabled }}
           env:
             - name: DATABASE_URI
