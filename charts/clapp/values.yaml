@@ -150,22 +150,32 @@ envVariables:
 #  HETZNER_S3_BUCKET: "ladada"
 
 # Infisical secret management
-# Requires the Infisical operator and a self-hosted Infisical instance
+# Requires the Infisical operator and a self-hosted Infisical instance.
+#
+# Minimal usage — just add this to your values-prod.yaml:
+#
+#   infisical:
+#     enabled: true
+#     secretsScope:
+#       projectSlug: "my-project-slug"
+#
+# Then add your secrets in the Infisical UI (https://infisical.testkopie.dev)
+# and they'll be automatically synced to a K8s Secret in your namespace.
 infisical:
   enabled: false
-  # URL of your self-hosted Infisical API
-  hostAPI: ""
+  # Pre-configured for our self-hosted Infisical instance
+  hostAPI: "https://infisical.testkopie.dev/api"
   resyncInterval: "60s"
 
-  # Kubernetes Auth (uses the chart's ServiceAccount)
-  identityId: ""
+  # Global cluster identity — shared by all projects (no per-project setup needed)
+  identityId: "1b909b7d-8b1a-43f8-bf86-b02ff4923aa7"
   serviceAccountRef:
     name: ""       # defaults to chart's ServiceAccount
     namespace: ""  # defaults to release namespace
 
   # Which secrets to fetch from Infisical
   secretsScope:
-    projectSlug: ""
+    projectSlug: ""  # REQUIRED: set this to your Infisical project slug
     envSlug: "prod"
     secretsPath: "/"
     recursive: false
